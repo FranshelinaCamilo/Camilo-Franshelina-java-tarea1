@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class TablaMultiplicar {
 
+    //3. Tabla de multiplicar (imprime la tabla del multiplicar de un numero hasta el 12)
     public static void tabla(){
 
         Scanner sc = new Scanner(System.in);

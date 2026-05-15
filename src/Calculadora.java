@@ -47,6 +47,7 @@ public class Calculadora {
         }
     }
 
+    //Métodos matemáticos
     public static double suma(double num1, double num2){
         return num1 + num2;
     }
@@ -59,6 +60,8 @@ public class Calculadora {
         return num1 * num2;
     }
     public static double division(double num1, double num2){
+        
+        //Validación para evitar divsión entre cero
         if(num2 == 0){
             System.out.println("\nDivision invalida.");
         }

@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class main{
     public static void main(String[] args){
         menu();
-
     }
 
+    //Menú princpal
     public static void menu(){
 
         Scanner sc = new Scanner(System.in);
@@ -75,6 +75,7 @@ public class main{
         }while(servicio != 11);
     }
 
+    //Metodo que simula una pausa en consola
     public static void pause(Scanner sc){
         System.out.printf("\nPresione una ENTER para continuar");
         sc.nextLine();
