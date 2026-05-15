@@ -1,8 +1,10 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class main{
     public static void main(String[] args){
         menu();
+
+
     }
 
     //Menú princpal
@@ -26,7 +28,7 @@ public class main{
             System.out.println("10. Sistema básico de inventario");
             System.out.println("11. Salir de la aplicación");
 
-            System.out.print("\n|> Seleccione una opción:");
+            System.out.print("\n|> Seleccione una opción: ");
             servicio = sc.nextInt();
 
             switch (servicio) {
@@ -56,6 +58,8 @@ public class main{
                     pause(sc);
                     break;
                 case 6:
+                    preguntarDatosEstudiantes(sc);
+                    pause(sc);
                     break;
                 case 7:
                     break;
@@ -81,4 +85,47 @@ public class main{
         sc.nextLine();
     }
 
+    //Metodo para adquirir las informaciones pertinentes de los estudiantes
+    public static void preguntarDatosEstudiantes(Scanner sc){
+
+        System.out.println("¿Cuantos estudiantes desea registrar?");
+        int cantEstudiantes = sc.nextInt();
+
+        //ArrayLIst de estudiantes para guardar su informacion
+        ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>(cantEstudiantes);
+
+        //Ciclo para registrar varios estudiantes
+        sc.nextLine();
+        for(int i = 0; i < cantEstudiantes; i++){
+
+            System.out.print("|> Nombre del estudiante: ");
+            String nombre = sc.nextLine();
+
+            System.out.print("|> Matricula del estudiante: ");
+            String matricula = sc.nextLine();
+
+            System.out.print("|> Carrera del estudiante: ");
+            String carrera = sc.nextLine();
+
+            System.out.print("|> Semestre del estudiante: ");
+            String semestre = sc.nextLine();
+
+            System.out.println();
+            
+            Estudiante est = new Estudiante(nombre, matricula, carrera, semestre);
+            estudiantes.add(est);
+        }
+
+        //Imprime los datos alamcenados de los estudiantes 
+        System.out.println("\n=========================================");
+        System.out.println("         Estudiantes registrados");
+        System.out.println("=========================================");
+        for(Estudiante estudiante: estudiantes){
+            System.out.println("Nombre: " + estudiante.getNombre()
+                                + "\nMatricula: " + estudiante.getMatricula()
+                                + "\nCarrera: " + estudiante.getCarrera()
+                                + "\nSemestre: " + estudiante.getSemestre());
+            System.out.println("-----------------------------------------");
+        }
+    }
 }
