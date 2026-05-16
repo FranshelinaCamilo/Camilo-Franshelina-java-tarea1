@@ -1,9 +1,9 @@
 //6. Clase estudiante
 public class Estudiante {
-    String Nombre;
-    String Matricula;
-    String Carrera;
-    String Semestre;
+    private String Nombre;
+    private String Matricula;
+    private String Carrera;
+    private String Semestre;
 
     //Constructor
     public Estudiante(String nombre, String matricula, String carrera, String semestre){

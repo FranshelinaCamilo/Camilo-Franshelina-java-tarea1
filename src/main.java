@@ -30,31 +30,28 @@ public class main{
 
             System.out.print("\n|> Seleccione una opción: ");
             servicio = sc.nextInt();
+            sc.nextLine();
 
+            
             switch (servicio) {
                 case 1:
                     Calculadora.CalculadoraBasica();
-                    sc.nextLine();
                     pause(sc);
                     break;
                 case 2:
                     ParOImpar.ParImpar();
-                    sc.nextLine();
                     pause(sc);
                     break;
                 case 3: 
                     TablaMultiplicar.tabla();
-                    sc.nextLine();
                     pause(sc);
                     break;
                 case 4:
                     ContadorVocales.cantVocales();
-                    sc.nextLine();
                     pause(sc);
                     break;
                 case 5:
                     Promedio.promedioNotas();
-                    sc.nextLine();
                     pause(sc);
                     break;
                 case 6:
@@ -66,6 +63,8 @@ public class main{
                     pause(sc);
                     break;
                 case 8:
+                    DatosHerenciaVehiculo(sc);
+                    pause(sc);
                     break;
                 case 9:
                     break;
@@ -133,7 +132,7 @@ public class main{
 
     static CuentaBancaria cb = null;
 
-    //Metodo para adquirir las informaciones pertinentes e imprimirlas
+    //Metodo para adquirir las informaciones pertinentes e imprimirlas sobre cuentas bancarias
     public static void DatosCuentaBancaria(Scanner sc){
 
         int servicio;
@@ -162,11 +161,11 @@ public class main{
 
                 System.out.print("|> Digite el saldo inicial: ");
                 double saldo = sc.nextDouble();
+                sc.nextLine();
 
                 cb = new CuentaBancaria(titular, saldo);
 
                 System.out.println("\nCuenta creada correctamente.");
-                sc.nextLine();
                 break;
             case 2:
                 if(cb == null){
@@ -190,6 +189,125 @@ public class main{
                 }
                 else{
                     cb.mostrarDatos();
+                }
+                break;
+            default:
+                System.out.println("\nOpción inválida.");
+        }
+    }
+
+    //Se coloca fuera del metodo para que se mantenga la informacion de los vehículos registrados
+    static ArrayList<Vehiculos> vehiculos = new ArrayList<Vehiculos>();
+
+    //Metodo para adquirir las informaciones pertinentes e imprimirlas sobre la herencia de vehículos
+    public static void DatosHerenciaVehiculo(Scanner sc){
+
+        
+        int servicio;
+
+        System.out.println("\n====== MENU HERENCIA DE VEHÍCULOS =====");
+        System.out.println("1. Carro");
+        System.out.println("2. Motocicleta");
+        System.out.println("3. Autobús");
+        System.out.println("4. Mostrar vehículos registrados");
+
+        System.out.print("\n¿Qué tipo de vehículo desea registrar?: ");
+        servicio = sc.nextInt();
+        sc.nextLine();
+
+        switch(servicio){
+
+            case 1:
+                System.out.print("\n|> Digite la marca del carro: ");
+                String marcaCarro = sc.nextLine();
+
+                System.out.print("|> Digite el modelo del carro: ");
+                String modeloCarro = sc.nextLine();
+
+                System.out.print("|> Digite el año del carro: ");
+                int añoCarro = sc.nextInt();
+                sc.nextLine();
+
+                System.out.print("|> Digite el número de puertas del carro: ");
+                int puertasCarro = sc.nextInt();
+                sc.nextLine();
+
+                System.out.print("|> Digite el tipo de combustible del carro: ");
+                String combustibleCarro = sc.nextLine();
+
+                Carro carro = new Carro(marcaCarro, modeloCarro, añoCarro, puertasCarro, combustibleCarro);
+
+                vehiculos.add(carro);
+
+                System.out.println("\nDatos del carro registrado:");
+                carro.mostrarDatos();
+                break;
+            case 2:
+                System.out.print("\n|> Digite la marca de la motocicleta: ");
+                String marcaMoto = sc.nextLine();
+
+                System.out.print("|> Digite el modelo de la motocicleta: ");
+                String modeloMoto = sc.nextLine();
+
+                System.out.print("|> Digite el año de la motocicleta: ");
+                int añoMoto = sc.nextInt();
+
+                sc.nextLine();
+                System.out.print("|> Digite la cilindrada de la motocicleta: ");
+                String cilindradaMoto = sc.nextLine();
+
+                System.out.print("|> La motocicleta es deportiva? (true/false): ");
+                boolean deportivaMoto = sc.nextBoolean();
+                sc.nextLine();
+
+                Motocicleta moto = new Motocicleta(marcaMoto, modeloMoto, añoMoto, cilindradaMoto, deportivaMoto);
+                
+                vehiculos.add(moto);
+
+                System.out.println("\nDatos de la motocicleta registrada:");
+                moto.mostrarDatos();
+                break;
+            case 3:
+                System.out.print("\n|> Digite la marca del autobús: ");
+                String marcaBus = sc.nextLine();
+
+                System.out.print("|> Digite el modelo del autobús: ");
+                String modeloBus = sc.nextLine();
+
+                System.out.print("|> Digite el año del autobús: ");
+                int añoBus = sc.nextInt();
+                sc.nextLine();
+
+                System.out.print("|> Digite la capacidad de pasajeros del autobús: ");
+                int capacidadBus = sc.nextInt();
+                sc.nextLine();
+
+                System.out.print("|> El autobús tiene baño? (true/false): ");
+                boolean bañoBus = sc.nextBoolean();
+                sc.nextLine();
+
+                System.out.print("|> Digite el tipo de aire acondicionado del autobús: ");
+                String aireBus = sc.nextLine();
+
+                Autobus bus = new Autobus(marcaBus, modeloBus, añoBus, capacidadBus, bañoBus, aireBus);
+
+                vehiculos.add(bus);
+
+                System.out.println("\nDatos del autobús registrado:");
+                bus.mostrarDatos();
+                break;
+            case 4:
+                if(vehiculos.isEmpty()){
+                    System.out.println("\nNo hay vehículos registrados.");
+                }
+                else{
+                    System.out.println("\n=========================================");
+                    System.out.println("         Vehículos registrados");
+                    System.out.println("=========================================");
+                    for(Vehiculos vehiculo: vehiculos){
+                        vehiculo.mostrarDatos();
+                        System.out.println("-----------------------------------------");
+                    }
                 }
                 break;
             default:

@@ -6,8 +6,8 @@ public class CuentaBancaria {
 
     Scanner sc = new Scanner(System.in);
 
-    String Titular;
-    double Saldo;
+    private String Titular;
+    private double Saldo;
 
     //Constructor
     public CuentaBancaria(String titular, double saldoInicial){
