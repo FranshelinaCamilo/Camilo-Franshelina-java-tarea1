@@ -1,6 +1,11 @@
 import java.util.*;
 
 public class main{
+
+    //Se colocan fuera del metodo para que se mantenga la informacion 
+    static matriz mat = new matriz();
+    static CuentaBancaria cb = null;
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
         menu();
 
@@ -10,7 +15,6 @@ public class main{
     //Menú princpal
     public static void menu(){
 
-        Scanner sc = new Scanner(System.in);
 
         int servicio;
 
@@ -52,6 +56,7 @@ public class main{
                     break;
                 case 5:
                     Promedio.promedioNotas();
+                    sc.nextLine();
                     pause(sc);
                     break;
                 case 6:
@@ -67,6 +72,8 @@ public class main{
                     pause(sc);
                     break;
                 case 9:
+                    mat.mostrarMenuMatriz(); 
+                    pause(sc);
                     break;
                 case 10:
                     break;
@@ -129,8 +136,6 @@ public class main{
             System.out.println("-----------------------------------------");
         }
     }
-
-    static CuentaBancaria cb = null;
 
     //Metodo para adquirir las informaciones pertinentes e imprimirlas sobre cuentas bancarias
     public static void DatosCuentaBancaria(Scanner sc){
