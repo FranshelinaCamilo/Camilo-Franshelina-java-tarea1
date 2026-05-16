@@ -62,6 +62,8 @@ public class main{
                     pause(sc);
                     break;
                 case 7:
+                    DatosCuentaBancaria(sc);
+                    pause(sc);
                     break;
                 case 8:
                     break;
@@ -85,13 +87,13 @@ public class main{
         sc.nextLine();
     }
 
-    //Metodo para adquirir las informaciones pertinentes de los estudiantes
+    //Metodo para adquirir las informaciones pertinentes de los estudiantes e imprimirlos
     public static void preguntarDatosEstudiantes(Scanner sc){
 
         System.out.println("¿Cuantos estudiantes desea registrar?");
         int cantEstudiantes = sc.nextInt();
 
-        //ArrayLIst de estudiantes para guardar su informacion
+        //ArrayList de estudiantes para guardar su informacion
         ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>(cantEstudiantes);
 
         //Ciclo para registrar varios estudiantes
@@ -111,7 +113,7 @@ public class main{
             String semestre = sc.nextLine();
 
             System.out.println();
-            
+
             Estudiante est = new Estudiante(nombre, matricula, carrera, semestre);
             estudiantes.add(est);
         }
@@ -126,6 +128,72 @@ public class main{
                                 + "\nCarrera: " + estudiante.getCarrera()
                                 + "\nSemestre: " + estudiante.getSemestre());
             System.out.println("-----------------------------------------");
+        }
+    }
+
+    static CuentaBancaria cb = null;
+
+    //Metodo para adquirir las informaciones pertinentes e imprimirlas
+    public static void DatosCuentaBancaria(Scanner sc){
+
+        int servicio;
+
+        System.out.println("\n====== MENU CUENTA BANCARIA =====");
+        System.out.println("1. Crear cuenta");
+        System.out.println("2. Depositar");
+        System.out.println("3. Retirar");
+        System.out.println("4. Ver informacion");
+
+        System.out.print("\nSeleccione una opción: ");
+        servicio = sc.nextInt();
+        sc.nextLine();
+
+        switch(servicio){
+
+            case 1:
+                //Verifica si ya existe una cuenta
+                if(cb != null){
+                    System.out.println("\nYa existe una cuenta registrada.");
+                    break;
+                }
+
+                System.out.print("\n|> Digite el nombre del titular: ");
+                String titular = sc.nextLine();
+
+                System.out.print("|> Digite el saldo inicial: ");
+                double saldo = sc.nextDouble();
+
+                cb = new CuentaBancaria(titular, saldo);
+
+                System.out.println("\nCuenta creada correctamente.");
+                sc.nextLine();
+                break;
+            case 2:
+                if(cb == null){
+                    System.out.println("\nPrimero debe crear una cuenta.");
+                }
+                else{
+                    cb.depositar();
+                }
+                break;
+            case 3:
+                if(cb == null){
+                    System.out.println("\nPrimero debe crear una cuenta.");
+                }
+                else{
+                    cb.retirar();
+                }
+                break;
+            case 4:
+                if(cb == null){
+                    System.out.println("\nPrimero debe crear una cuenta.");
+                }
+                else{
+                    cb.mostrarDatos();
+                }
+                break;
+            default:
+                System.out.println("\nOpción inválida.");
         }
     }
 }
