@@ -1,4 +1,4 @@
-public class Carro extends Vehiculos {
+public class Carro extends Vehiculo {
 
     //Atributos adicionales para Carro
     private int puertas;
@@ -13,6 +13,7 @@ public class Carro extends Vehiculos {
     }
 
     public Carro(){
+        super();
         setPuertas(0);
         setCombustible("");
     }

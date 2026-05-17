@@ -4,10 +4,9 @@ import java.util.*;
 
 public class CuentaBancaria {
 
-    Scanner sc = new Scanner(System.in);
 
-    private String Titular;
-    private double Saldo;
+    private String titular;
+    private double saldo;
 
     //Constructor
     public CuentaBancaria(String titular, double saldoInicial){
@@ -22,42 +21,45 @@ public class CuentaBancaria {
 
     //getters y setters
     public String getTitular(){
-        return Titular;
+        return titular;
     }
 
     public double getSaldo(){
-        return Saldo;
+        return saldo;
     }
 
     public void setTitular(String titular){
-        this.Titular = titular;
+        this.titular = titular;
     }
 
     public void setSaldo(double saldo){
-        this.Saldo = saldo;
+        this.saldo = saldo;
     }
 
     //metodos
-    public void depositar(){
-        System.out.print("Digite el monto a depositar: ");
+    public void depositar(Scanner sc){
+        System.out.print("|> Digite el monto a depositar: ");
         double monto = sc.nextDouble();
-        Saldo += monto;
+        sc.nextLine();
+
+        saldo += monto;
     }
 
-    public void retirar (){
+    public void retirar (Scanner sc){
         
-        System.out.print("Digite el monto a depositar: ");
+        System.out.print("|> Digite el monto a retirar: ");
         double monto = sc.nextDouble();
+        sc.nextLine();
 
-        if(monto <= Saldo){
-            Saldo -= monto;
+        if(monto <= saldo){
+            saldo -= monto;
         }
         else
-            System.out.println("Fondos insuficientes.");
+            System.out.println("|> Fondos insuficientes.");
     }
 
     public void mostrarDatos(){
-        System.out.println("Titular: " + getTitular());
-        System.out.println("Saldo: " + getSaldo());
+        System.out.println("|> Titular: " + getTitular());
+        System.out.println("|> Saldo: " + getSaldo());
     }
 }

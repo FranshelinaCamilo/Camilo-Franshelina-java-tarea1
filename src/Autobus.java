@@ -1,4 +1,4 @@
-public class Autobus extends Vehiculos {
+public class Autobus extends Vehiculo {
     
     //Atributos adicionales para Autobus
     private int capacidadPasajeros;
@@ -14,6 +14,7 @@ public class Autobus extends Vehiculos {
     }
 
     public Autobus(){
+        super();
         setCapacidadPasajeros(0);
         setTieneBaño(false);
         setAireAcondicionado("");

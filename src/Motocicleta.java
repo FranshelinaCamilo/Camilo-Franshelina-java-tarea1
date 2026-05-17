@@ -1,4 +1,4 @@
-public class Motocicleta extends Vehiculos {
+public class Motocicleta extends Vehiculo {
 
     //Atributos adicionales para Motocicleta
     private String cilindrada;
@@ -12,6 +12,7 @@ public class Motocicleta extends Vehiculos {
     }
 
     public Motocicleta(){
+        super();
         setCilindrada("");
         setDeportiva(false);
     }

@@ -1,9 +1,9 @@
 //6. Clase estudiante
 public class Estudiante {
-    private String Nombre;
-    private String Matricula;
-    private String Carrera;
-    private String Semestre;
+    private String nombre;
+    private String matricula;
+    private String carrera;
+    private String semestre;
 
     //Constructor
     public Estudiante(String nombre, String matricula, String carrera, String semestre){
@@ -15,34 +15,35 @@ public class Estudiante {
 
     //getters y setters
     public String getNombre(){
-        return Nombre;
+        return nombre;
     }
 
     public String getMatricula(){
-        return Matricula;
+        return matricula;
     }
 
     public String getCarrera(){
-        return Carrera;
+        return carrera;
     }
 
     public String getSemestre(){
-        return Semestre;
+        return semestre;
     }
 
     public void setNombre(String nombre){
-        this.Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public void setMatricula(String matricula){
-        this.Matricula = matricula;
+        this.matricula = matricula;
     }
 
     public void setCarrera(String carrera){
-        this.Carrera = carrera;
+        this.carrera = carrera;
     }
 
     public void setSemestre(String semestre){
-        this.Semestre = semestre;
+        this.semestre = semestre;
     }
+
 }

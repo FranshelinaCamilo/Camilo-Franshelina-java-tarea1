@@ -3,9 +3,7 @@ import java.util.Scanner;
 public class ContadorVocales {
     
     //4. Contador de vocales
-    public static void cantVocales(){
-
-        Scanner sc = new Scanner(System.in);
+    public static void cantVocales(Scanner sc){
 
         System.out.print("|> Digite una palabra o frase: ");
         String cad = sc.nextLine().toLowerCase();
@@ -18,6 +16,6 @@ public class ContadorVocales {
                 contador++;
             }
         }
-        System.out.println("|> La cantidad de vocales de la frase es: " + contador);
+        System.out.println("|> Cantidad de vocales: " + contador);
     }   
 }
