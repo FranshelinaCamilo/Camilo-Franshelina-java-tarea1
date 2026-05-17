@@ -2,11 +2,11 @@
 
 ## Tarea #1 - Menú interactivo
 
-** Estudiante:** Franshelina Camilo Cabrera
+**Estudiante:** Franshelina Camilo Cabrera
 
-** Matrícula:** 1000-5493
+**Matrícula:** 1000-5493
 
-** Materia:** Programación 3
+**Materia:** Programación 3
 
 ## Descripción:
 
